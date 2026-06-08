@@ -49,6 +49,9 @@ jobs:
       - name: Build
         if: steps.detect.outputs.framework == 'npm'
         run: npm run build
+        env:
+          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
       - name: Resolve output directory
         id: outdir
         run: |
